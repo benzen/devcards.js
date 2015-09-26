@@ -21,7 +21,7 @@ Exemples
 =========
 
 Simplest card
------------------------
+-------------
 
 ```jsx
 //Let's say I've got a component this that
@@ -38,4 +38,28 @@ Simplest card
 
 Here is the result:
 ![First component devcards](readme-asset/first-comp.png)
+
+
+A documenting card
+------------------
+
+```jsx
+
+const doc = "## Important Stuff \n\
+### Really important stuff\n\
+Es6 doesn\'t get proper support for multi line string  \n\
+What a shame for cards like this one\n\
+\n\
+\n\
+Here is some *weird* String! Don\'t You thinK Paulie?\
+"
+<DevCard doc={doc}
+         title="A card with makrdown">
+  <MyComponent str="Joe"/>
+</DevCard>
+
+```
+
+Here is the result:
+![Second component devcards](readme-asset/second-comp.png)
 

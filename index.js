@@ -113,17 +113,17 @@ var MyDevCard = MyDevCard || comp(function(){
 registerDevCards(<MyDevCard/>);
   
 var My2DevCard = My2DevCard || comp(function(){
-  const doc = "## abx\n \
-  ### def\n\
-  What if i make a multi \n\
-  line markdown \n\
+  const doc = "## Important Stuff \n\
+  ### Really important stuff\n\
+  Es6 doesn\'t get proper support for multi line string  \n\
+  What a shame for cards like this one\n\
   \n\
   \n\
   Here is some *weird* String! Don\'t You thinK Paulie?\
   "
   return  <DevCard doc={doc}
                    title="A card with makrdown">
-            <MyComponent str="eco"/>
+            <MyComponent str="Joe"/>
           </DevCard>
 });
 registerDevCards(<My2DevCard/>);
@@ -184,9 +184,7 @@ let render = render || function(){
     document.getElementById('example'));
 };
 
-setInterval(
-  function(){
-    requestAnimationFrame(render);
-  }
-, 10);
-
+(function loop(){
+  requestAnimationFrame(loop);
+  render();
+})();
