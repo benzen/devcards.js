@@ -41,14 +41,21 @@ var DevCardDoc = DevCardDoc || comp(function(){
   return <div dangerouslySetInnerHTML={doc}/>
 });
 
-var DevCardsPropsDisplay = DevCardsPropsDisplay || comp(function(){
-  if(!this.props.props){ return null; }
-  const json = JSON.stringify(this.props.props); 
-  return <pre><code className="hljs json">{json}</code></pre>
+var DevCardsPropsDisplay = DevCardsPropsDisplay || comp({
+  render: function(){
+    if(!this.props.props){ return null; }
+    const json = JSON.stringify(this.props.props); 
+    return <pre><code className="hljs json">{json}</code></pre>
+  },
+  componentWillUpdate:function(){
+    if(this.getDOMNode()){
+      hljs.highlightBlock(this.getDOMNode())
+    }
+  }
 });
 var DevCardBody = DevCardBody || comp(function(){
   const bodyStyle = {
-    margin: "5px"
+    margin: "10px"
   };
   return <div style={bodyStyle}>
     <DevCardDoc value={this.props.doc}/>
@@ -79,7 +86,8 @@ let registerDevCards = registerDevCards || function(card){
 
 var DevCardsListing = DevCardsListing || comp(function(){
   const listStyle = {
-         listStyle: "none"
+          listStyle: "none",
+          padding: "0px"
         },
         devcards = devCardsToShow.map(
           (devcard, index) => {
@@ -90,21 +98,19 @@ var DevCardsListing = DevCardsListing || comp(function(){
   </ul>
 });
 
-
 var MyComponent = MyComponent || comp(function(){
-  return <div>"MY ELM" {this.props.str}</div>
+  return <div>Hello {this.props.str}</div>
 });
 
 var MyDevCard = MyDevCard || comp(function(){
   const cmpParam = {
-    str: "hello"
+    str: "Joe"
   }
-  return  <DevCard doc="This is an important card"
-                   title="MyPersonal dev cards">
+  return  <DevCard title="A not so fancy card">
             <MyComponent {...cmpParam}/>
           </DevCard>
 });
-//registerDevCards(<MyDevCard/>);
+registerDevCards(<MyDevCard/>);
   
 var My2DevCard = My2DevCard || comp(function(){
   const doc = "## abx\n \
@@ -140,7 +146,7 @@ var My3DevCard = My3DevCard || comp(function(){
             <InteractiveCard/>
           </DevCard>
 });
-//registerDevCards(<My3DevCard/>);
+registerDevCards(<My3DevCard/>);
 
 var InteractiveCardV2 = InteractiveCardV2 || comp({
   getInitialState: function(){
