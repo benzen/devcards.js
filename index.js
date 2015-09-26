@@ -42,8 +42,19 @@ var DevCardDoc = DevCardDoc || comp(function(){
 });
 
 var DevCardsPropsDisplay = DevCardsPropsDisplay || comp(function(){
+  if(!this.props.props){ return null; }
   const json = JSON.stringify(this.props.props); 
   return <pre><code className="hljs json">{json}</code></pre>
+});
+var DevCardBody = DevCardBody || comp(function(){
+  const bodyStyle = {
+    margin: "5px"
+  };
+  return <div style={bodyStyle}>
+    <DevCardDoc value={this.props.doc}/>
+    {this.props.children}
+    <DevCardsPropsDisplay props={this.props.props}/> 
+  </div>;
 });
 
 var DevCard = DevCard || comp(function(){
@@ -54,9 +65,9 @@ var DevCard = DevCard || comp(function(){
         };
   return <div style={cardStyle}>
     <DevCardTitle value={this.props.title}/>
-    <DevCardBody doc={this.props.doc}>
+    <DevCardBody doc={this.props.doc}
+                 props={this.props.props}>
       {this.props.children}
-      <DevCardsPropsDisplay props={this.props.props}/>  
     </DevCardBody>
     </div>;
 });
@@ -109,7 +120,7 @@ var My2DevCard = My2DevCard || comp(function(){
             <MyComponent str="eco"/>
           </DevCard>
 });
-//registerDevCards(<My2DevCard/>);
+registerDevCards(<My2DevCard/>);
 
 var InteractiveCard = InteractiveCard || comp(function(){
   var inc = function(){
