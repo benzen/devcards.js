@@ -17,6 +17,11 @@ And watch this: https://vimeo.com/97078905
 I wont give more explanantion, Bruce Hauman did a great job at this.
 Plus I don't intend to create features that don't exists in clojurescript's devcards.
 
+Particular points
+==================
+
+* built with code reloading in mind
+
 Exemples
 =========
 
@@ -62,4 +67,18 @@ Here is some *weird* String! Don\'t You thinK Paulie?\
 
 Here is the result:
 ![Second component devcards](readme-asset/second-comp.png)
+
+
+A debugging card
+----------------
+
+```jsx
+const props = {str: 'joe'}
+<DevCard title="Show me the prrrrrrops"
+          props={props}>
+  <MyComponent {...props}/>
+</DevCard>;
+```
+Here is the result:
+![Third component devcards](readme-asset/third-comp.png)
 
