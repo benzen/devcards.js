@@ -37,5 +37,5 @@ Simplest card
 ```
 
 Here is the result:
-()
+![First component devcards](readme-assert/firstcomp.png)
 
