@@ -1,4 +1,4 @@
-Devcars.js
+Devcards.js
 ================
 
 See https://github.com/bhauman/devcards
@@ -16,3 +16,26 @@ And watch this: https://vimeo.com/97078905
 
 I wont give more explanantion, Bruce Hauman did a great job at this.
 Plus I don't intend to create features that don't exists in clojurescript's devcards.
+
+Exemples
+=========
+
+Simplest card
+-----------------------
+
+```jsx
+//Let's say I've got a component this that
+//This component wil just make a string "who $this.props.who"
+<MyComponent who="Joe"/>
+
+//And That I want to try it like this
+<DevCard title="A not so fancy card">
+  <MyComponent />
+</DevCard>
+});
+
+```
+
+Here is the result:
+()
+
