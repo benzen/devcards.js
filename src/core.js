@@ -117,3 +117,44 @@ let devCard = function(name = "", documentation = "", component, initialState, d
   });
   registerDevCard(dc);
 };
+
+const devcardsElementId = "devcards";
+
+let addBaseIfNessecary = function(){
+  if(!document.getElementById("devcards")){
+    const head = document.getElementsByTagName("head")[0];
+    const body = document.getElementsByTagName("body")[0];
+    const stuffToAdd = [
+      {type: "script", src: "highlight.pack.js"},
+      {type: "script", src: "commonmark.js"},
+      {type: "style", src: "styles/github.css"},
+      {type: "node", id:devcardsElementId}
+    ];
+    stuffToAdd.forEach(function(stuff){
+      if(stuff.type === "script"){
+        const elm = document.createElement("script");
+        elm.setAttribute("src", stuff.src);
+        head.appendChild(elm);
+      }else if(stuff.type === "style"){
+        const elm = document.createElement("link");
+        elm.setAttribute("rel", "stylesheet");
+        elm.setAttribute("href", stuff.src);
+        head.appendChild(elm);
+      }else if(stuff.type === "node"){
+        const elm = document.createElement("div");
+        elm.setAttribute("id", stuff.id);
+        body.appendChild(elm);
+      }
+    });
+  }
+};
+
+let render = function(){
+  addBaseIfNessecary()
+  React.render(
+    <DevCardsListing/>,
+    document.getElementById(devcardsElementId));
+};
+
+render();
+

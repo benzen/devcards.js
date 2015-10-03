@@ -73,16 +73,3 @@ devCard(
 );
 
 
-let render = function(){
-  React.render(
-    <DevCardsListing/>,
-    document.getElementById('example'));
-};
-
-render();
-
-//let loop = loop || (function (){
-  //requestAnimationFrame(loop);
-  //render();
-//});
-//loop()

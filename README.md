@@ -22,6 +22,18 @@ Particular points
 
 * built with code reloading in mind
 
+
+How to setup up ?
+=====================
+
++ Create a html file that will show your cards
++ Add a script tag into your file like this one:
+``` html
+<script src="devcards.js">
+```
++ Use the defCard function as show in the example section
+
+
 Exemples
 =========
 
