@@ -69,7 +69,11 @@ A debugging card
 
 ```jsx
 const props = {str: 'joe'}
-devCard("Show me the prrrrrrops", null,<MyComponent {...props}/>, props)
+devCard(
+  "Show me the prrrrrrops", 
+  null,
+  <MyComponent {...props}/>, 
+  props);
 ```
 Here is the result:
 ![Third component devcards](readme-asset/third-comp.png)
