@@ -34,9 +34,7 @@ Simplest card
 <MyComponent who="Joe"/>
 
 //And That I want to try it like this
-<DevCard title="A not so fancy card">
-  <MyComponent />
-</DevCard>
+devCard("A not so fancy card",  <MyComponent />);
 });
 
 ```
@@ -50,19 +48,16 @@ A documenting card
 
 ```jsx
 
-const doc = "## Important Stuff \n\
-### Really important stuff\n\
-Es6 doesn\'t get proper support for multi line string  \n\
-What a shame for cards like this one\n\
-\n\
-\n\
-Here is some *weird* String! Don\'t You thinK Paulie?\
-"
-<DevCard doc={doc}
-         title="A card with makrdown">
+devCard(
+  "A card with makrdown", 
+  `## Important Stuff
+  ### Really important stuff
+  Es6 doesn\'t get proper support for multi line string
+  What a shame for cards like this one
+  
+  Here is some *weird* String! Don\'t You thinK Paulie?`,
   <MyComponent str="Joe"/>
-</DevCard>
-
+);
 ```
 
 Here is the result:
@@ -74,10 +69,7 @@ A debugging card
 
 ```jsx
 const props = {str: 'joe'}
-<DevCard title="Show me the prrrrrrops"
-          props={props}>
-  <MyComponent {...props}/>
-</DevCard>;
+devCard("Show me the prrrrrrops", null,<MyComponent {...props}/>, props)
 ```
 Here is the result:
 ![Third component devcards](readme-asset/third-comp.png)
