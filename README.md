@@ -26,7 +26,7 @@ Particular points
 How to setup up ?
 =====================
 
-+ integrate `lib/core.js` into your build pipline. I recommend jspm, in my opinion it's the easiest one.
++ integrate `devcards.js` into your build pipline. I recommend jspm, in my opinion it's the easiest one.
 + Create a module which will hold your devcards.
 + import the `devcard` and `startRenderLoop` from the devcard module like this
 
