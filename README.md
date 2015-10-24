@@ -36,6 +36,9 @@ import {devcard, startRenderLoop} from 'devcard';
 
 + Use the defcard function as show in the example section
 + Start explicitly the ui from you html file in a js script tag
++ If you feels fancy, you could also add a css file from highligh.js. I've included the github.css,
+because it's ok with me.
+
 
 ```js
 startRenderLoop();
