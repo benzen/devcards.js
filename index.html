@@ -1,6 +1,13 @@
 <head>
-  <script src="react-0.13.3.js"></script>
-  <script src="build/reloader.js"></script>
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <script>
+    System.import("lib/core.js").then((core)=>{
+      core.startRenderLoop();
+      System.import("lib/exemples.js")
+      
+    })
+  </script>
 </head>
 <body>
 </body>

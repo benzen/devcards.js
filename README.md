@@ -26,13 +26,20 @@ Particular points
 How to setup up ?
 =====================
 
-+ Create a html file that will show your cards
-+ Add a script tag into your file like this one:
-``` html
-<script src="devcards.js">
-```
-+ Use the defCard function as show in the example section
++ integrate `lib/core.js` into your build pipline. I recommend jspm, in my opinion it's the easiest one.
++ Create a module which will hold your devcards.
++ import the `devcard` and `startRenderLoop` from the devcard module like this
 
+````js
+import {devcard, startRenderLoop} from 'devcard';
+````
+
++ Use the defcard function as show in the example section
++ Start explicitly the ui from you html file in a js script tag
+
+```js
+startRenderLoop();
+```
 
 Exemples
 =========
@@ -46,7 +53,7 @@ Simplest card
 <MyComponent who="Joe"/>
 
 //And That I want to try it like this
-devCard("A not so fancy card",  <MyComponent />);
+devCard("A not so fancy card", () => <MyComponent />);
 });
 
 ```
@@ -68,7 +75,7 @@ devCard(
   What a shame for cards like this one
   
   Here is some *weird* String! Don\'t You thinK Paulie?`,
-  <MyComponent str="Joe"/>
+  () => <MyComponent str="Joe"/>
 );
 ```
 
@@ -84,7 +91,7 @@ const props = {str: 'joe'}
 devCard(
   "Show me the prrrrrrops", 
   null,
-  <MyComponent {...props}/>, 
+  () => <MyComponent {...props}/>, 
   props);
 ```
 Here is the result:
