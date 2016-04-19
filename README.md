@@ -72,14 +72,15 @@ A documenting card
 ```jsx
 
 devCard(
+  'A card with markdown',
+  MyComponent,
+  {str:"Joe"},
   `## Important Stuff
   ### Really important stuff
   Es6 doesn\'t get proper support for multi line string
   What a shame for cards like this one
   
-  Here is some *weird* String! Don\'t You thinK Paulie?`,
-  MyComponent,
-  {str:"Joe"}
+  Here is some *weird* String! Don\'t You thinK Paulie?`,  
 );
 ```
 
