@@ -101,3 +101,8 @@ devCard(
 Here is the result:
 ![Third component devcards](readme-asset/third-comp.png)
 
+TODO
+---------
+At the moment there is no notion of routing.
+Could be cool.
+
